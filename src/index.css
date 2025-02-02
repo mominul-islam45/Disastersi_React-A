@@ -16,3 +16,7 @@
 
   --color-active: #4ADE80;
 }
+
+.active{
+  @apply font-bold text-dark
+}

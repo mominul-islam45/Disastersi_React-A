@@ -1,14 +1,7 @@
 import React from "react";
 import Container from "./common/container";
-
-const navItems = [
-  "Dashboard",
-  "Incidents",
-  "Locations",
-  "Activities",
-  "Documents",
-  "Cypher AI",
-];
+import { NavLink } from "react-router";
+import { navItems } from "../lib/db/navItems";
 
 const Navbar = () => {
   return (
@@ -21,10 +14,10 @@ const Navbar = () => {
 
           {/* Nav Items */}
           <div className="flex gap-[35px]">
-            {navItems.map((items, i) => (
-              <a href="#" key={i} className="text-gray hover:text-dark transition-all">
-                {items}
-              </a>
+            {navItems.map(({label, link}, i) => (
+              <NavLink to={link} key={i} className="text-gray hover:text-dark transition-all">
+                {label}
+              </NavLink>
             ))}
           </div>
 
