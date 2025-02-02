@@ -1,21 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "./common/container";
 import { NavLink } from "react-router";
 import { navItems } from "../lib/db/navItems";
+import { NavMenuToggle } from "./NavMenuToggle";
 
 const Navbar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const toggleMenu = ()=> setIsMenuOpen(!isMenuOpen)
+
   return (
     <>
       <nav className="bg-light-v2 py-5 border-b border-b-gray/20">
-        <Container className='flex justify-between items-center'>
-          <div>
+        <Container className="flex justify-between items-center">
+          <div className="flex gap-4">
+            {/* Toggle button */}
+            <button
+              className="lg:hidden space-y-2 cursor-pointer"
+              onClick={toggleMenu}
+            >
+              <div className="w-6 h-0.5 bg-dark"></div>
+              <div className="w-6 h-0.5 bg-dark"></div>
+              <div className="w-6 h-0.5 bg-dark"></div>
+            </button>
+            {/* Toggle Menu */}
+            {isMenuOpen && <NavMenuToggle toggleMenu={toggleMenu}/>}
+
+            {/* Logo */}
             <img src="logo.png" alt="logo" />
           </div>
 
           {/* Nav Items */}
-          <div className="flex gap-[35px]">
-            {navItems.map(({label, link}, i) => (
-              <NavLink to={link} key={i} className="text-gray hover:text-dark transition-all">
+          <div className="hidden lg:flex gap-[28px] xl:gap-[35px]">
+            {navItems.map(({ label, link }, i) => (
+              <NavLink
+                to={link}
+                key={i}
+                className="text-gray hover:text-dark transition-all"
+              >
                 {label}
               </NavLink>
             ))}
@@ -25,7 +46,8 @@ const Navbar = () => {
             {/* Notification Icon */}
             <div className=" relative w-fit">
               <div className="bg-light rounded-full size-[40px] flex justify-center items-center group hover:cursor-pointer transition-all">
-                <svg className="group-hover:fill-orange"
+                <svg
+                  className="group-hover:fill-orange"
                   width="26"
                   height="25"
                   viewBox="0 0 26 25"
@@ -52,11 +74,11 @@ const Navbar = () => {
 
             {/* User Avatar & profile*/}
             <div className="flex gap-2 items-center text-gray hover:text-dark hover:cursor-pointer transition-all">
-                <img src="./imgs/avatar.png" alt="" />
-                <div>
-                    <h3 className="font-semibold ">Usman Zafar</h3>
-                    <p className="text-[14px]">usmanzafar@gmail.com</p>
-                </div>
+              <img src="./imgs/avatar.png" alt="" />
+              <div className=" hidden xl:block">
+                <h3 className="font-semibold ">Usman Zafar</h3>
+                <p className="text-[14px]">usmanzafar@gmail.com</p>
+              </div>
             </div>
           </div>
         </Container>
