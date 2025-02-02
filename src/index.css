@@ -1,1 +1,16 @@
+/* ===== Custom Font -- Onest ===== */
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
 @import "tailwindcss";
+
+@theme{
+  /* ===== Custom Font -- Onest ===== */
+  --font-onest: "Onest", sans-serif;
+  /* ===== Color Theme ===== */
+  --color-dark: #09090B;
+  --color-dark-v2: #3F3F46;
+  --color-gray: #71717A;
+  --color-light: #FAFAFA;
+  --color-light-v2: #F4F4F5;
+  --color-orange: #F26922;
+}
