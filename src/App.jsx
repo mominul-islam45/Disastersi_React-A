@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Dashboard from "./pages/Dashboard";
-import Incidents from "./pages/Incidents";
+import Incidents from "./pages/incidents/Incidents";
 import Locations from "./pages/Locations";
 import Error from "./pages/Error";
 

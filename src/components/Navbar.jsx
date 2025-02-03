@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className=" sticky top-0 z-50 bg-light-v2 py-5 border-b border-b-gray/20">
+      <nav className=" sticky top-0 z-50 bg-light py-5 border-b border-b-gray/20">
         <Container className="flex justify-between items-center">
           <div className="flex gap-4">
             {/* Toggle button */}

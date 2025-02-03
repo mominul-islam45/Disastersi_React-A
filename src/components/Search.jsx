@@ -6,7 +6,7 @@ import Button from "./common/Button";
 const Search = ({breadcrumb, title, buttonIcon, button, buttonOnClick}) => {
   return (
     <>
-      <div className="bg-light-v2 py-5">
+      <div className="bg-light py-5">
         <Container className="flex items-center justify-between">
             <div className=" space-y-3">
                 <p className="text-xs text-gray">{breadcrumb}</p>
