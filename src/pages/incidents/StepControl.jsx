@@ -4,14 +4,14 @@ import Container from "../../components/common/container";
 import Button from "../../components/common/Button";
 import { cn } from "../../lib/utility/cn";
 
-const StepControl = ({ stepProgressStyle, prevStep, next, nextStep }) => {
+const StepControl = ({ stepProgressStyle, prevStep, next, nextStep, onClose }) => {
   return (
     <>
       <div className="bg-light py-5">
         <Container className="flex flex-col lg:flex-row lg:items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Close Button */}
-            <button className="size-[40px] rounded-full bg-white border border-gray/30 flex justify-center items-center group hover:border-orange/40 cursor-pointer hover:scale-110 transition-all">
+            <button onClick={onClose} className="size-[40px] rounded-full bg-white border border-gray/30 flex justify-center items-center group hover:border-orange/40 cursor-pointer hover:scale-110 transition-all">
               <svg className="stroke-gray group-hover:stroke-orange transition-all active:stroke-gray"
                 width="21"
                 height="21"

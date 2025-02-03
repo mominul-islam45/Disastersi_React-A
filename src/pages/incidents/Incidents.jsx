@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Search from "../../components/Search";
 import PlusIcon from "../../../public/icons/plus.svg";
@@ -10,6 +10,7 @@ import Step_4 from "./Step_4";
 import StepControl from "./StepControl";
 
 const Incidents = () => {
+  // By default, contents(search, cards) are true/will displayed
   const [isContentOpen, setIsContentOpen] = useState(true);
 
   //Page steps array
@@ -29,9 +30,15 @@ const Incidents = () => {
     setCurrentStep(currentStep + 1)
   }
 
-  // After steps complete, window will reload
+  // For close the steps
+  const onClose = ()=>{
+    setIsContentOpen(!isContentOpen)
+    setCurrentStep(0)
+  }
+  // After steps complete, it will open default incidents page
   if(currentStep > 4){
-    window.location.reload()
+    setIsContentOpen(!isContentOpen)
+    setCurrentStep(0)
   }
 
   return (
@@ -57,21 +64,21 @@ const Incidents = () => {
       {/* Step 2 */}
       {currentStep === 2 && (
         <>
-          <StepControl stepProgressStyle='w-1/3' prevStep={prevStep} nextStep={nextStep} next={currentStep === 4 ? 'Finished': 'Next step'}/>
+          <StepControl stepProgressStyle='w-1/3' prevStep={prevStep} nextStep={nextStep} next={currentStep === 4 ? 'Finished': 'Next step'} onClose={onClose}/>
           <Step_2 />
         </>
       )}
       {/* Step 3 */}
       {currentStep === 3 && (
         <>
-          <StepControl stepProgressStyle='w-2/3' prevStep={prevStep} nextStep={nextStep} next={currentStep === 4 ? 'Finished': 'Next step'}/>
+          <StepControl stepProgressStyle='w-2/3' prevStep={prevStep} nextStep={nextStep} next={currentStep === 4 ? 'Finished': 'Next step'} onClose={onClose}/>
           <Step_3 />
         </>
       )}
       {/* Step 4 */}
       {currentStep === 4 && (
         <>
-          <StepControl stepProgressStyle='w-full' prevStep={prevStep} nextStep={nextStep} next={currentStep === 4 ? 'Finished': 'Next step'}/>
+          <StepControl stepProgressStyle='w-full' prevStep={prevStep} nextStep={nextStep} next={currentStep === 4 ? 'Finished': 'Next step'} onClose={onClose}/>
           <Step_4 />
         </>
       )}
