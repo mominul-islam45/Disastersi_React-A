@@ -4,7 +4,7 @@ import Title from "../../components/common/Title";
 import { addIncidentSteps } from "../../lib/db/addIncidentSteps";
 import Button from "../../components/common/Button";
 
-const Step_2AddIncident = () => {
+const Step_1AddIncident = ({onGetStart}) => {
   return (
     <>
       <Container className='flex flex-col justify-center items-center'>
@@ -37,10 +37,10 @@ const Step_2AddIncident = () => {
                 </div>
             ))}
         </div>
-        <Button className='my-12'>Get started</Button>
+        <Button className='my-12' onClick={onGetStart}>Get started</Button>
       </Container>
     </>
   );
 };
 
-export default Step_2AddIncident;
+export default Step_1AddIncident;
