@@ -11,7 +11,7 @@ const Cards = () => {
         {cards.map(({ img, title, address, cost }, i) => (
           <div key={i} className="relative">
             {/* Blizzard */}
-            <div className="flex gap-[5px] rounded-full p-[10px] group cursor-pointer bg-light w-fit absolute top-[10px] right-[10px] z-40">
+            <div className="flex gap-[5px] rounded-full p-[10px] group cursor-pointer bg-light w-fit absolute top-[10px] right-[10px] z-30">
               <svg
                 className="group-hover:fill-orange-600 transition-colors"
                 width="16"
