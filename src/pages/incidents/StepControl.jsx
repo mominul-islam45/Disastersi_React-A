@@ -19,7 +19,7 @@ const StepControl = ({ stepProgressStyle, prevStep, next, nextStep, onClose }) =
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_1_707)">
+                <g clipPath="url(#clip0_1_707)">
                   <path
                     d="M14.9067 6.09467L6.56074 14.4407"
                     stroke=""
