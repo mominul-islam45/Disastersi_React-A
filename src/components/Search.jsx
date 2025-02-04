@@ -2,6 +2,7 @@ import React from "react";
 import Container from "./common/container";
 import Title from "./common/Title";
 import Button from "./common/Button";
+import Search_field from "./common/search_field";
 
 const Search = ({breadcrumb, title, buttonIcon, button, buttonOnClick}) => {
   return (
@@ -15,10 +16,7 @@ const Search = ({breadcrumb, title, buttonIcon, button, buttonOnClick}) => {
 
             <div className="flex flex-col sm:flex-row gap-3 items-end">
                 {/* Search input */}
-                <div className="relative">
-                    <input type="search" placeholder="Search incident" className="w-[150px] md:w-[190px] ps-8 p-2 bg-light rounded-[6px] search-bar placeholder:text-xs  border border-gray/15 outline-0 focus:border-orange/50 hover:border-gray/60 transition-all"/>
-                    <img src="./icons/search.svg" alt="" className=" absolute top-[11px] left-[8px]"/>
-                </div>
+                <Search_field placeholder='Search incident' />
                 {/* sort by - filter */}
                 <button className=" px-[10px] py-[12px] text-xs text-gray bg-light rounded-[6px] cursor-pointer border border-gray/15 outline-0 focus:border-orange/50 hover:border-gray/60 transition-all">Sort By: Date modified</button>
                 {/* Button */}
