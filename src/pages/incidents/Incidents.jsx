@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Search from "../../components/Search";
 import PlusIcon from "../../../public/icons/plus.svg";
-import Cards from "../../components/Cards";
+import Card from "../../components/common/Card";
+import Container from "../../components/common/container";
+import { cards } from "../../lib/db/cards";
 import Step_1AddIncident from "./Step_1AddIncident";
 import Step_2 from "./Step_2";
 import Step_3 from "./Step_3";
@@ -23,22 +25,22 @@ const Incidents = () => {
     setCurrentStep(steps[0]);
   };
 
-  const prevStep = () =>{
-    setCurrentStep(currentStep - 1)
-  }
-  const nextStep = () =>{
-    setCurrentStep(currentStep + 1)
-  }
+  const prevStep = () => {
+    setCurrentStep(currentStep - 1);
+  };
+  const nextStep = () => {
+    setCurrentStep(currentStep + 1);
+  };
 
   // For close the steps
-  const onClose = ()=>{
-    setIsContentOpen(!isContentOpen)
-    setCurrentStep(0)
-  }
+  const onClose = () => {
+    setIsContentOpen(!isContentOpen);
+    setCurrentStep(0);
+  };
   // After steps complete, it will open default incidents page
-  if(currentStep > 4){
-    setIsContentOpen(!isContentOpen)
-    setCurrentStep(0)
+  if (currentStep > 4) {
+    setIsContentOpen(!isContentOpen);
+    setCurrentStep(0);
   }
 
   return (
@@ -55,30 +57,60 @@ const Incidents = () => {
             buttonOnClick={onAddIncident}
           />
           {/* Contents cards */}
-          <Cards />
+          <Container className="py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[25px] ">
+            {cards.map(({ img, title, address, cost }, i) => (
+              <Card
+                key={i}
+                tagIcon="icons/blizzard.svg"
+                tag="Blizzard"
+                img={img}
+                title={title}
+                address={address}
+                cost={cost}
+              />
+            ))}
+          </Container>
         </>
       )}
 
       {/* Get start/1st step of add new incident */}
-      {currentStep === 1 && <Step_1AddIncident onGetStart={nextStep}/>}
+      {currentStep === 1 && <Step_1AddIncident onGetStart={nextStep} />}
       {/* Step 2 */}
       {currentStep === 2 && (
         <>
-          <StepControl stepProgressStyle='w-1/3' prevStep={prevStep} nextStep={nextStep} next={currentStep === 4 ? 'Finished': 'Next step'} onClose={onClose}/>
+          <StepControl
+            stepProgressStyle="w-1/3"
+            prevStep={prevStep}
+            nextStep={nextStep}
+            next={currentStep === 4 ? "Finished" : "Next step"}
+            onClose={onClose}
+          />
           <Step_2 />
         </>
       )}
       {/* Step 3 */}
       {currentStep === 3 && (
         <>
-          <StepControl stepProgressStyle='w-2/3' prevStep={prevStep} nextStep={nextStep} next={currentStep === 4 ? 'Finished': 'Next step'} onClose={onClose}/>
+          <StepControl
+            stepProgressStyle="w-2/3"
+            prevStep={prevStep}
+            nextStep={nextStep}
+            next={currentStep === 4 ? "Finished" : "Next step"}
+            onClose={onClose}
+          />
           <Step_3 />
         </>
       )}
       {/* Step 4 */}
       {currentStep === 4 && (
         <>
-          <StepControl stepProgressStyle='w-full' prevStep={prevStep} nextStep={nextStep} next={currentStep === 4 ? 'Finished': 'Next step'} onClose={onClose}/>
+          <StepControl
+            stepProgressStyle="w-full"
+            prevStep={prevStep}
+            nextStep={nextStep}
+            next={currentStep === 4 ? "Finished" : "Next step"}
+            onClose={onClose}
+          />
           <Step_4 />
         </>
       )}

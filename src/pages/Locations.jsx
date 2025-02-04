@@ -5,6 +5,8 @@ import PlusIcon from "../../public/icons/plus.svg";
 import Severe_Storm from '../../public/icons/incidentType/severe_storm.svg';
 import Container from "../components/common/container";
 import Title from "../components/common/Title";
+import { locationCards } from "../lib/db/locationCards";
+import Card from "../components/common/Card";
 
 const Locations = () => {
   return (
@@ -66,9 +68,18 @@ const Locations = () => {
 
           {/* Horizontal line */}
           <div className=" h-[1px] w-full bg-light-v2"></div>
+
           {/* Locations Cards */}
           <div>
-
+            <div className="flex justify-between">
+              <p className="text-sm text-dark font-bold">Locations</p>
+              <p className="text-sm text-gray underline cursor-pointer">See all</p>
+            </div>
+            <div className="py-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[25px]">
+            {locationCards.map(({img,title, address, cost}, i)=>(
+              <Card key={i} tagIcon='icons/building.svg' tag='Building' img={img} title={title} address={address} cost={cost}/>
+            ))}
+            </div>
           </div>
         </div>
       </Container>
