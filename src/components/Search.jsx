@@ -4,14 +4,14 @@ import Title from "./common/Title";
 import Button from "./common/Button";
 import Search_field from "./common/search_field";
 
-const Search = ({breadcrumb, title, buttonIcon, button, buttonOnClick}) => {
+const Search = ({breadcrumb, titleIcon, title, buttonIcon, button, buttonOnClick}) => {
   return (
     <>
       <div className="bg-light py-5">
         <Container className="flex items-center justify-between">
             <div className=" space-y-3">
                 <p className="text-xs text-gray">{breadcrumb}</p>
-                <Title>{title}</Title>
+                <Title className='flex gap-1'><img src={titleIcon}/>{title}</Title>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 items-end">
